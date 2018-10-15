@@ -1,0 +1,9 @@
+probe process("/home/admin/tengine/bin/nginx").function("*@src/http/ngx_http_*").call
+{
+	    printf("%s -> %s\n", thread_indent(4), ppfunc());
+}
+
+probe process("/home/admin/tengine/bin/nginx").function("*@src/http/ngx_http_*").return
+{
+	    printf("%s <- %s\n", thread_indent(-4), ppfunc());
+}

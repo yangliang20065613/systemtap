@@ -1,0 +1,6 @@
+probe process("./stap_set_var").statement("main@./stap_set_var.c:17")
+{
+	    $p->id = 222;
+	        printf("$p$: %s\n", $p$)
+}
+
